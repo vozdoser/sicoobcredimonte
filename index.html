@@ -88,6 +88,12 @@ p,.apoio,.itens li,.soma{text-align:justify;text-justify:inter-word;
 .rolar i{width:1px;height:34px;background:var(--cyan);display:block;animation:desce 1.8s ease-in-out infinite;transform-origin:top;}
 @keyframes desce{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
 
+/* ---------- assinatura conjunta (Voz do Ser + cliente) ---------- */
+.assinatura{position:relative;z-index:2;display:flex;align-items:center;
+            gap:clamp(16px,3.4vw,26px);margin-bottom:auto;}
+.assinatura img{height:clamp(36px,8.4vw,52px);width:auto;}
+.assinatura i{display:block;width:1px;height:clamp(28px,6.4vw,44px);background:rgba(225,244,242,.4);}
+
 /* ---------- manifesto ---------- */
 .manifesto p{font-family:'Fraunces',Georgia,serif;font-weight:300;letter-spacing:-.01em;
              font-size:clamp(26px,7.4vw,54px);line-height:1.22;color:var(--dark);max-width:22ch;}
@@ -293,6 +299,11 @@ p,.apoio,.itens li,.soma{text-align:justify;text-justify:inter-word;
 <div class="hero">
   <img class="bg" src="assets/palestrantes-no-convida-lu-falando.jpg" alt="">
   <div class="veu"></div>
+  <div class="wrap assinatura">
+    <img src="assets/logo_vozdoser-bco.png" alt="Voz do Ser">
+    <i></i>
+    <img src="assets/logo-sicoob-credimonte.png" alt="Sicoob Credimonte">
+  </div>
   <div class="wrap">
     <div class="marca">Voz do Ser</div>
     <h1>Programa Liderança com <em>Propósito</em></h1>
@@ -800,6 +811,11 @@ p,.apoio,.itens li,.soma{text-align:justify;text-justify:inter-word;
   <img class="bg" src="assets/palestrante-explicando-o-caminho-do-autoconhecimento-no-slide.jpg" alt="">
   <div class="veu"></div>
   <div class="wrap">
+    <div class="assinatura rev" style="margin:0 0 clamp(40px,8vw,64px);padding:0;">
+      <img src="assets/logo_vozdoser-bco.png" alt="Voz do Ser">
+      <i></i>
+      <img src="assets/logo-sicoob-credimonte.png" alt="Sicoob Credimonte">
+    </div>
     <div class="olho rev">Próximo passo</div>
     <h2 class="rev">Escolhida a proposta, <em>desenhamos o calendário</em></h2>
     <p class="lead rev" style="color:var(--mist);max-width:56ch;">Estamos à disposição para detalhar a estratégia que fizer mais sentido para o Sicoob Credimonte e alinhar as datas.</p>
