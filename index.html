@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#193c3a">
+<title>Programa Liderança com Propósito · Sicoob Credimonte · Voz do Ser</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Jost:wght@400;500;600;700&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BASE — mobile primeiro
+   ============================================================ */
+:root{
+  --dark:#193c3a; --deep:#0f2927; --tiffany:#00d0ca; --cyan:#4bfff6;
+  --mist:#e1f4f2; --ink:#1c2b2a; --paper:#fbfdfd;
+  --gut:clamp(22px,5.5vw,88px);
+  --maxw:1420px;
+}
+*{margin:0;padding:0;box-sizing:border-box;border-radius:0 !important;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{font-family:'Karla',system-ui,Arial,sans-serif;color:var(--ink);background:var(--paper);
+     line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.serif{font-family:'Fraunces',Georgia,serif;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);}
+section{position:relative;padding:clamp(72px,16vw,160px) 0;}
+.esc{background:var(--dark);color:var(--mist);}
+.deep{background:var(--deep);color:var(--mist);}
+
+.olho{font-family:'Jost',sans-serif;font-weight:600;font-size:clamp(10.5px,2.6vw,12.5px);
+      letter-spacing:.3em;text-transform:uppercase;color:var(--tiffany);margin-bottom:clamp(18px,4vw,28px);
+      display:flex;align-items:center;gap:14px;}
+.olho::after{content:"";flex:1;height:1px;background:currentColor;opacity:.35;max-width:120px;}
+.esc .olho,.deep .olho{color:var(--cyan);}
+
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.02;letter-spacing:-.015em;}
+h2{font-size:clamp(34px,8.5vw,72px);color:var(--dark);margin-bottom:clamp(20px,4vw,34px);}
+.esc h2,.deep h2{color:#fff;}
+h2 em,h1 em{font-style:italic;font-weight:300;color:var(--tiffany);}
+.esc h2 em,.deep h2 em,.esc h1 em{color:var(--cyan);}
+h3{font-size:clamp(23px,5.4vw,32px);color:var(--dark);line-height:1.12;}
+.esc h3,.deep h3{color:#fff;}
+p{font-size:clamp(16.5px,4.3vw,19px);line-height:1.65;}
+@media(min-width:640px){p{font-size:clamp(17px,1.5vw,19px);}}
+.lead{font-size:clamp(19px,5.2vw,26px);line-height:1.5;font-weight:300;}
+@media(min-width:640px){.lead{font-size:clamp(20px,2.1vw,27px);}}
+.med{max-width:52ch;} .larg{max-width:80ch;}
+
+/* textos corridos justificados, com hifenizacao (depende de lang="pt-BR") */
+p,.apoio,.itens li,.soma{text-align:justify;text-justify:inter-word;
+   -webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;}
+
+/* ---------- barra de progresso + topo ---------- */
+.prog{position:fixed;top:0;left:0;height:3px;background:var(--tiffany);width:0;z-index:300;transition:width .1s linear;}
+.topo{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 0;
+      background:rgba(15,41,39,0);transform:translateY(-100%);transition:transform .45s ease,background .45s ease;}
+.topo.on{transform:none;background:rgba(15,41,39,.94);backdrop-filter:blur(10px);}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.topo img{height:clamp(38px,9vw,52px);width:auto;}
+.topo .ident{font-family:'Jost',sans-serif;font-size:clamp(10px,2.5vw,12px);letter-spacing:.18em;
+             text-transform:uppercase;font-weight:600;color:var(--mist);text-align:right;line-height:1.6;}
+.topo .ident span{display:block;color:var(--cyan);}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+      position:relative;overflow:hidden;background:var(--dark);color:#fff;
+      padding:clamp(100px,18vw,140px) 0 clamp(40px,10vw,70px);}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;filter:saturate(.6);
+          animation:zoom 18s ease-out forwards;}
+@keyframes zoom{from{transform:scale(1.1)}to{transform:scale(1)}}
+.hero .veu{position:absolute;inset:0;background:
+   linear-gradient(180deg,rgba(15,41,39,.82) 0%,rgba(15,41,39,.55) 35%,rgba(15,41,39,.95) 100%);}
+.hero .wrap{position:relative;z-index:2;width:100%;}
+.marca{font-family:'Jost',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+       color:var(--tiffany);font-size:clamp(30px,8.4vw,60px);line-height:1;margin-bottom:clamp(18px,4vw,26px);}
+.hero h1{font-size:clamp(34px,8.6vw,78px);color:#fff;}
+.hero .sub{margin-top:clamp(20px,5vw,30px);color:var(--mist);max-width:48ch;}
+.hero .meta{margin-top:clamp(34px,8vw,58px);padding-top:20px;border-top:1px solid rgba(225,244,242,.3);
+            display:flex;flex-wrap:wrap;gap:8px 28px;font-family:'Jost',sans-serif;font-weight:500;
+            font-size:clamp(11px,2.8vw,13px);letter-spacing:.2em;text-transform:uppercase;color:var(--mist);}
+.rolar{margin-top:clamp(26px,6vw,40px);display:inline-flex;align-items:center;gap:12px;
+       font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);}
+.rolar i{width:1px;height:34px;background:var(--cyan);display:block;animation:desce 1.8s ease-in-out infinite;transform-origin:top;}
+@keyframes desce{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+
+/* ---------- manifesto ---------- */
+.manifesto p{font-family:'Fraunces',Georgia,serif;font-weight:300;letter-spacing:-.01em;
+             font-size:clamp(26px,7.4vw,54px);line-height:1.22;color:var(--dark);max-width:22ch;}
+.manifesto p b{font-weight:500;}
+.manifesto p em{font-style:italic;color:var(--tiffany);}
+.manifesto .apoio{font-family:'Karla',sans-serif;font-size:clamp(16.5px,4.3vw,19px);line-height:1.65;
+                  font-weight:400;color:var(--ink);max-width:64ch;margin-top:clamp(28px,6vw,44px);letter-spacing:0;}
+
+/* ---------- fotos ---------- */
+.dupla{display:flex;flex-direction:column;gap:clamp(30px,6vw,56px);}
+@media(min-width:960px){.dupla{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:clamp(40px,5vw,72px);}}
+.retrato{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.faixa-foto{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 50%;margin-top:clamp(32px,6vw,52px);}
+@media(min-width:960px){.faixa-foto{aspect-ratio:21/9;}}
+
+/* ---------- lista numerada ---------- */
+.temas{margin-top:clamp(30px,6vw,48px);}
+.tema{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,4vw,32px);align-items:baseline;
+      padding:clamp(20px,4.4vw,30px) 0;border-top:1px solid rgba(25,60,58,.16);}
+.tema:last-child{border-bottom:1px solid rgba(25,60,58,.16);}
+.tema .n{font-family:'Fraunces',Georgia,serif;font-size:clamp(17px,4vw,22px);color:var(--tiffany);
+         font-weight:400;min-width:2.2ch;}
+.tema .t{font-size:clamp(18px,4.8vw,26px);line-height:1.3;color:var(--dark);font-weight:400;}
+@media(min-width:900px){
+  .temas{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(40px,5vw,80px);}
+  .tema:nth-child(5){border-bottom:1px solid rgba(25,60,58,.16);}
+}
+
+/* ---------- chapéu de capítulo (P / M / G) ---------- */
+.cap{position:relative;overflow:hidden;}
+.cap .letra{position:absolute;right:-.1em;top:50%;transform:translateY(-50%);
+            font-family:'Fraunces',Georgia,serif;font-weight:300;line-height:.8;
+            font-size:clamp(230px,52vw,560px);color:var(--tiffany);opacity:.07;pointer-events:none;z-index:0;}
+.cap .wrap{position:relative;z-index:1;}
+.esc .cap .letra,.deep .letra{color:var(--cyan);opacity:.09;}
+
+/* ---------- blocos de etapa ---------- */
+.etapas{display:flex;flex-direction:column;gap:clamp(18px,4vw,26px);margin-top:clamp(30px,6vw,46px);}
+.bloco{background:#fff;border-top:3px solid var(--tiffany);padding:clamp(26px,6vw,40px);
+       box-shadow:0 1px 0 rgba(25,60,58,.06);transition:transform .4s ease,box-shadow .4s ease;}
+.bloco:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(25,60,58,.1);}
+.bloco.inv{background:var(--dark);border-top-color:var(--cyan);color:var(--mist);}
+.bloco.inv h3{color:#fff;}
+.bloco .tag{font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+            font-weight:600;color:var(--tiffany);margin-bottom:14px;}
+.bloco.inv .tag{color:var(--cyan);}
+.bloco .quando{font-family:'Jost',sans-serif;font-size:clamp(12px,3vw,13.5px);letter-spacing:.1em;
+               text-transform:uppercase;font-weight:500;opacity:.6;margin:12px 0 18px;}
+.bloco.inv .quando{opacity:.8;color:var(--mist);}
+.bloco p{margin-bottom:0;}
+.itens{list-style:none;margin-top:22px;border-top:1px solid rgba(25,60,58,.16);padding-top:20px;}
+.bloco.inv .itens{border-top-color:rgba(225,244,242,.28);}
+.itens li{position:relative;padding-left:22px;margin-bottom:12px;font-size:clamp(16px,4.1vw,17.5px);line-height:1.5;}
+.itens li:last-child{margin-bottom:0;}
+.itens li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:1px;background:var(--tiffany);}
+.bloco.inv .itens li::before{background:var(--cyan);}
+@media(min-width:900px){
+  /* cartoes da mesma fileira sempre com a mesma altura */
+  .etapas.duo{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}
+  .etapas.trio{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch;}
+}
+
+/* ---------- faixa jornada ---------- */
+.jornada{margin-top:clamp(20px,4vw,28px);padding:clamp(22px,5vw,30px);background:var(--mist);
+         border-left:3px solid var(--tiffany);}
+.jornada .tt{font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+             font-weight:600;opacity:.6;margin-bottom:10px;}
+.jornada p{font-size:clamp(16px,4.1vw,17.5px);}
+
+/* ---------- linha do tempo ---------- */
+.linhadotempo{display:flex;flex-direction:column;gap:1px;background:rgba(225,244,242,.22);
+              margin-top:clamp(30px,6vw,46px);}
+.linhadotempo>div{background:var(--dark);padding:clamp(22px,5vw,30px);}
+.linhadotempo .mes{font-family:'Jost',sans-serif;font-size:clamp(11px,2.8vw,12.5px);letter-spacing:.22em;
+                   text-transform:uppercase;font-weight:600;color:var(--cyan);margin-bottom:12px;}
+.linhadotempo .oq{font-family:'Fraunces',Georgia,serif;font-size:clamp(21px,5vw,27px);color:#fff;line-height:1.15;}
+.linhadotempo .det{font-size:clamp(15.5px,4vw,17px);color:var(--mist);opacity:.85;margin-top:10px;}
+@media(min-width:900px){.linhadotempo{display:grid;grid-template-columns:repeat(3,1fr);}}
+
+/* ---------- caixa / destaque ---------- */
+.caixa{background:rgba(225,244,242,.07);border-left:3px solid var(--cyan);padding:clamp(24px,5vw,32px);}
+
+/* ---------- carrossel de tópicos ---------- */
+.centro{text-align:center;margin-left:auto;margin-right:auto;}
+.olho.meio{justify-content:center;}
+.olho.meio::after{display:none;}
+.carrossel{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;
+           margin-top:clamp(36px,7vw,60px);
+           -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+                   mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);}
+.trilha{display:flex;gap:clamp(10px,1.6vw,16px);width:max-content;will-change:transform;
+        animation:desliza 60s linear infinite;}
+.carrossel:hover .trilha{animation-play-state:paused;}
+@keyframes desliza{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.trilha span{border:1px solid rgba(75,255,246,.45);color:var(--mist);white-space:nowrap;
+             padding:clamp(12px,2.4vw,16px) clamp(18px,3vw,26px);font-size:clamp(14px,3.4vw,17px);line-height:1;}
+.carrossel.lenta .trilha{animation-duration:80s;}
+@media(prefers-reduced-motion:reduce){
+  .carrossel{width:auto;margin-left:0;-webkit-mask-image:none;mask-image:none;}
+  .trilha{animation:none;flex-wrap:wrap;width:auto;justify-content:center;}
+  .trilha span.clone{display:none;}
+}
+
+/* ---------- seção com foto de fundo ---------- */
+.comfoto{position:relative;overflow:hidden;}
+.comfoto>.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;filter:saturate(.6);}
+.comfoto>.veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,60,58,.9) 0%,rgba(25,60,58,.82) 45%,rgba(25,60,58,.93) 100%);}
+.comfoto>.wrap{position:relative;z-index:2;}
+
+/* ---------- investimento ---------- */
+.planos{display:flex;flex-direction:column;gap:clamp(26px,5vw,34px);margin-top:clamp(32px,6vw,50px);}
+@media(min-width:1000px){.planos{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch;}}
+.plano{display:flex;flex-direction:column;}
+.plano .nome{font-family:'Fraunces',Georgia,serif;font-size:clamp(26px,6.4vw,34px);color:var(--dark);
+             border-bottom:2px solid var(--tiffany);padding-bottom:14px;margin-bottom:6px;}
+.plano .prazo{font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+              font-weight:600;opacity:.55;margin-bottom:18px;}
+.opc{padding:clamp(22px,5vw,30px);background:var(--mist);flex:1;display:flex;flex-direction:column;
+     transition:transform .4s ease,box-shadow .4s ease;}
+.opc:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(25,60,58,.1);}
+.opc.inv{background:var(--dark);color:var(--mist);}
+.opc .lbl{font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+          font-weight:600;opacity:.6;margin-bottom:14px;}
+.opc.inv .lbl{color:var(--cyan);opacity:1;}
+.opc .soma{font-size:clamp(14.5px,3.7vw,15.5px);line-height:1.85;opacity:.85;}
+.opc .soma b{font-weight:600;}
+.opc .val{font-family:'Fraunces',Georgia,serif;font-size:clamp(34px,8.4vw,44px);color:var(--dark);
+          line-height:1.05;margin-top:auto;padding-top:20px;letter-spacing:-.02em;}
+.opc.inv .val{color:#fff;}
+.opc .eco{font-size:clamp(13.5px,3.4vw,14.5px);font-weight:600;opacity:.65;margin-top:8px;}
+.opc.inv .eco{color:var(--cyan);opacity:1;}
+.opc .pgto{font-size:clamp(13.5px,3.4vw,14.5px);margin-top:16px;padding-top:14px;
+           border-top:1px solid rgba(25,60,58,.18);opacity:.8;}
+.opc.inv .pgto{border-top-color:rgba(225,244,242,.25);}
+.opc .horas{font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
+            font-weight:600;color:var(--tiffany);margin-top:18px;padding-top:14px;
+            border-top:1px solid rgba(25,60,58,.18);line-height:1.6;}
+.opc.inv .horas{color:var(--cyan);border-top-color:rgba(225,244,242,.25);}
+
+/* ---------- números ---------- */
+.nums{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(225,244,242,.25);
+      margin-top:clamp(30px,6vw,44px);}
+.nums>div{background:var(--dark);padding:clamp(20px,5vw,28px);}
+.nums .n{font-family:'Fraunces',Georgia,serif;font-size:clamp(34px,9vw,46px);color:#fff;line-height:1;}
+.nums .l{font-family:'Jost',sans-serif;font-size:clamp(10.5px,2.6vw,11.5px);letter-spacing:.18em;
+         text-transform:uppercase;color:var(--cyan);font-weight:600;margin-top:10px;line-height:1.4;}
+@media(min-width:760px){.nums{grid-template-columns:repeat(4,1fr);}}
+.nums.claro{background:rgba(25,60,58,.14);}
+.nums.claro>div{background:var(--paper);}
+.nums.claro .n{color:var(--dark);} .nums.claro .l{color:var(--tiffany);}
+
+/* ---------- quem somos ---------- */
+.sobre{display:flex;flex-direction:column;gap:clamp(30px,6vw,50px);}
+@media(min-width:960px){.sobre{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:clamp(40px,5vw,80px);}}
+
+/* ---------- logos ---------- */
+.marcas{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,4vw,26px);
+        align-items:center;margin-top:clamp(30px,6vw,48px);}
+.marcas img{height:clamp(34px,8vw,46px);width:100%;object-fit:contain;opacity:.85;}
+@media(min-width:620px){.marcas{grid-template-columns:repeat(5,1fr);}}
+@media(min-width:1000px){.marcas{grid-template-columns:repeat(8,1fr);}}
+
+/* ---------- contato ---------- */
+.contato{position:relative;overflow:hidden;background:var(--deep);color:#fff;}
+.contato .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;filter:saturate(.6);}
+.contato .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,41,39,.9),rgba(15,41,39,.96));}
+.contato .wrap{position:relative;z-index:2;}
+.contato h2{color:var(--mist);}
+.contato h2 em{color:var(--cyan);}
+.canais{margin-top:clamp(32px,6vw,48px);display:flex;flex-direction:column;}
+.canais a{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:clamp(16px,4vw,20px) 0;
+          border-top:1px solid rgba(225,244,242,.22);font-size:clamp(16px,4.2vw,19px);transition:padding-left .3s ease,color .3s ease;}
+.canais a:last-child{border-bottom:1px solid rgba(225,244,242,.22);}
+.canais a:hover{padding-left:12px;color:var(--cyan);}
+.canais b{font-family:'Jost',sans-serif;font-weight:600;font-size:clamp(11px,2.8vw,12.5px);
+          letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);min-width:110px;}
+.fim{margin-top:clamp(36px,7vw,56px);padding-top:22px;border-top:1px solid rgba(225,244,242,.25);
+     font-family:'Jost',sans-serif;font-size:clamp(10.5px,2.6vw,12px);letter-spacing:.22em;
+     text-transform:uppercase;color:var(--mist);opacity:.8;}
+
+/* ---------- entrada em cena ---------- */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1);}
+.rev.vis{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){
+  .rev{opacity:1;transform:none;transition:none;}
+  .hero .bg{animation:none;} .rolar i{animation:none;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+
+<header class="topo" id="topo">
+  <div class="wrap">
+    <img src="assets/logo_vozdoser-bco.png" alt="Voz do Ser">
+    <div class="ident">Proposta · Sicoob Credimonte<span>13.10.2026</span></div>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<div class="hero">
+  <img class="bg" src="assets/palestrantes-no-convida-lu-falando.jpg" alt="">
+  <div class="veu"></div>
+  <div class="wrap">
+    <div class="marca">Voz do Ser</div>
+    <h1>Programa Liderança com <em>Propósito</em></h1>
+    <p class="sub lead">Desenvolvimento de líderes comunicadores para o Sicoob Credimonte.</p>
+    <div class="meta">
+      <span>Três níveis de liderança</span>
+      <span>Três propostas: P, M e G</span>
+      <span>Até 12&nbsp;meses</span>
+    </div>
+    <a class="rolar" href="#programa"><i></i>Role para ver</a>
+  </div>
+</div>
+
+<!-- ======================= O PROGRAMA ======================= -->
+<section id="programa" class="manifesto">
+  <div class="wrap">
+    <div class="olho rev">O programa</div>
+    <h2 class="rev">Líderes que inspiram, orientam e <em>constroem confiança</em></h2>
+  </div>
+  <div class="wrap dupla" style="margin-top:clamp(6px,2vw,18px);">
+    <div>
+    <p class="apoio rev" style="margin-top:0;">O Programa Liderança com Propósito foi desenvolvido para fortalecer e profissionalizar a atuação dos líderes do Sicoob Credimonte, aprimorando suas competências de comunicação, relacionamento e gestão de pessoas.</p>
+    <p class="apoio rev" style="margin-top:18px;">A proposta é desenvolver líderes comunicadores, capazes de inspirar, orientar, motivar e construir relações de confiança, utilizando a comunicação como uma ferramenta estratégica para fortalecer equipes, impulsionar resultados e transformar a cultura organizacional.</p>
+    <p class="apoio rev" style="margin-top:18px;border-left:3px solid var(--tiffany);padding-left:20px;color:var(--dark);">Mais do que desenvolver competências, o programa busca transformar a maneira como os líderes se comunicam, se relacionam e exercem sua liderança, promovendo relações mais saudáveis, equipes mais engajadas e resultados mais consistentes.</p>
+    </div>
+    <img class="retrato rev" src="assets/palestra-sobre-cultura-e-team-building-pov-plateia-cheia.jpg" alt="Treinamento Voz do Ser">
+  </div>
+</section>
+
+<!-- ======================= COMPETÊNCIAS ======================= -->
+<section style="background:#fff;">
+  <div class="wrap">
+    <div class="olho rev">O programa</div>
+    <h2 class="rev">Principais competências <em>trabalhadas</em></h2>
+    <div class="temas">
+      <div class="tema rev"><div class="n serif">01</div><div class="t">Identificação de pontos fortes e oportunidades de desenvolvimento</div></div>
+      <div class="tema rev"><div class="n serif">02</div><div class="t">Compreensão e gestão de diferentes perfis comportamentais</div></div>
+      <div class="tema rev"><div class="n serif">03</div><div class="t">Estratégias para conversas corajosas e assertivas</div></div>
+      <div class="tema rev"><div class="n serif">04</div><div class="t">Técnicas para dar e receber feedbacks efetivos</div></div>
+      <div class="tema rev"><div class="n serif">05</div><div class="t">Comunicação clara e orientações eficazes</div></div>
+      <div class="tema rev"><div class="n serif">06</div><div class="t">Postura, credibilidade e influência do líder comunicador</div></div>
+      <div class="tema rev"><div class="n serif">07</div><div class="t">Estratégias de motivação e engajamento de equipes</div></div>
+      <div class="tema rev"><div class="n serif">08</div><div class="t">Inteligência Emocional e Inteligência Relacional na prática</div></div>
+      <div class="tema rev"><div class="n serif">09</div><div class="t">Neurociência da comunicação</div></div>
+      <div class="tema rev"><div class="n serif">10</div><div class="t">Dinâmicas e simulações de liderança na prática</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= NÍVEIS DE LIDERANÇA ======================= -->
+<section class="esc">
+  <div class="wrap">
+    <div class="olho rev">Público</div>
+    <h2 class="rev">Três níveis de liderança, uma <em>linguagem comum</em></h2>
+    <p class="lead rev larg" style="color:var(--mist);">O programa contempla Diretoria e Presidência, Gestores Táticos e Liderança de Base, considerando os diferentes desafios, responsabilidades e necessidades de desenvolvimento de cada grupo.</p>
+    <div class="etapas trio">
+      <div class="bloco inv rev" style="background:var(--deep);">
+        <div class="tag">Nível 1</div>
+        <h3>Diretoria e Presidência</h3>
+        <div class="quando">4&nbsp;participantes</div>
+        <p>Visão estratégica, influência, tomada de decisão e responsabilidade da alta liderança na construção da cultura organizacional.</p>
+      </div>
+      <div class="bloco inv rev" style="background:var(--deep);">
+        <div class="tag">Nível 2</div>
+        <h3>Gestores Táticos</h3>
+        <div class="quando">7&nbsp;participantes</div>
+        <p>Gestão de pessoas, condução de feedbacks, alinhamento de expectativas, conversas corajosas e desenvolvimento de equipes.</p>
+      </div>
+      <div class="bloco inv rev" style="background:var(--deep);">
+        <div class="tag">Nível 3</div>
+        <h3>Liderança de Base</h3>
+        <div class="quando">80&nbsp;participantes</div>
+        <p>Aplicação prática da comunicação, autoconhecimento, relacionamento entre diferentes perfis, postura profissional, colaboração e protagonismo.</p>
+      </div>
+    </div>
+    <div class="caixa rev" style="margin-top:clamp(24px,5vw,34px);">
+      <p style="color:var(--mist);">Os treinamentos serão interligados e complementares, trabalhando competências e ferramentas em comum, mas com abordagens, dinâmicas e aprofundamentos específicos para cada nível. A proposta é desenvolver uma linguagem compartilhada de liderança em toda a instituição, garantindo que os participantes conheçam as ferramentas trabalhadas nos demais grupos e fortalecendo o alinhamento entre os diferentes níveis hierárquicos.</p>
+    </div>
+    <img class="faixa-foto rev" src="assets/palestrantes-luana-e-gabriel-sentados-prestando-atencao-lideres.jpg" alt="Líderes em treinamento do Voz do Ser">
+  </div>
+</section>
+
+<!-- ======================= ETAPA 1 ======================= -->
+<section class="comfoto" style="background:var(--deep);color:var(--mist);">
+  <img class="bg" src="assets/palestra-perfil-de-comunicacao-pov-plateia-alegre.jpg" alt="">
+  <div class="veu"></div>
+  <div class="wrap">
+    <div class="olho meio rev">Etapa 1</div>
+    <h2 class="rev centro" style="color:#fff;max-width:26ch;">Treinamentos presenciais por <em>níveis de liderança</em></h2>
+    <p class="lead rev centro" style="color:var(--mist);max-width:54ch;">21&nbsp;horas presenciais · três grupos · conduzidos por dois Terapeutas da Comunicação</p>
+    <p class="rev centro" style="color:var(--mist);max-width:66ch;margin-top:clamp(18px,4vw,26px);">Nesta primeira etapa, serão realizados treinamentos de Liderança com Propósito direcionados aos três níveis de liderança do Sicoob Credimonte, utilizando ferramentas, experiências e dinâmicas práticas da metodologia Voz do Ser.</p>
+    <div class="carrossel rev lenta">
+      <div class="trilha">
+      <span>Comunicação com Propósito</span>
+      <span>Perfil de Comunicação</span>
+      <span>Neurociência da Comunicação</span>
+      <span>Inteligência Emocional e Relacional</span>
+      <span>Conversas Corajosas</span>
+      <span>Cultura de Feedback</span>
+      <span>Liderança Comunicadora</span>
+      <span>Relacionamentos com Propósito</span>
+      <span>Gap de Propósito</span>
+      <span class="clone" aria-hidden="true">Comunicação com Propósito</span>
+      <span class="clone" aria-hidden="true">Perfil de Comunicação</span>
+      <span class="clone" aria-hidden="true">Neurociência da Comunicação</span>
+      <span class="clone" aria-hidden="true">Inteligência Emocional e Relacional</span>
+      <span class="clone" aria-hidden="true">Conversas Corajosas</span>
+      <span class="clone" aria-hidden="true">Cultura de Feedback</span>
+      <span class="clone" aria-hidden="true">Liderança Comunicadora</span>
+      <span class="clone" aria-hidden="true">Relacionamentos com Propósito</span>
+      <span class="clone" aria-hidden="true">Gap de Propósito</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ETAPA 1 · OS TRÊS TREINAMENTOS ======================= -->
+<section style="background:#fff;">
+  <div class="wrap">
+    <div class="olho rev">Etapa 1</div>
+    <h2 class="rev">Os três <em>treinamentos</em></h2>
+    <div class="etapas trio">
+      <div class="bloco rev" style="background:var(--mist);">
+        <div class="tag">Treinamento 1</div>
+        <h3>Diretoria e Presidência</h3>
+        <div class="quando">4&nbsp;participantes · 6&nbsp;horas</div>
+        <p>Comunicação, cultura e estratégia. Um treinamento com foco no posicionamento estratégico da liderança, no fortalecimento da cultura organizacional e na construção de uma comunicação capaz de inspirar e direcionar os demais níveis da instituição.</p>
+      </div>
+      <div class="bloco rev" style="background:var(--mist);">
+        <div class="tag">Treinamento 2</div>
+        <h3>Gestores Táticos</h3>
+        <div class="quando">7&nbsp;participantes · 6&nbsp;horas</div>
+        <p>Gestão e desenvolvimento de equipes. Voltado ao desenvolvimento das competências de gestão, comunicação e relacionamento, fortalecendo o papel dos gestores como elo entre a estratégia institucional e a atuação das equipes.</p>
+      </div>
+      <div class="bloco inv rev">
+        <div class="tag">Treinamento 3</div>
+        <h3>Liderança de Base</h3>
+        <div class="quando">3&nbsp;grupos de até 27&nbsp;pessoas · 3&nbsp;horas por grupo</div>
+        <p>Comunicação e relacionamentos na prática. Uma experiência prática e dinâmica voltada ao desenvolvimento das competências essenciais de comunicação, relacionamento e liderança no cotidiano profissional.</p>
+        <ul class="itens">
+          <li>Total: 3&nbsp;treinamentos, 9&nbsp;horas</li>
+          <li>A divisão em grupos menores permite maior participação, proximidade e aproveitamento das dinâmicas</li>
+        </ul>
+      </div>
+    </div>
+    <img class="faixa-foto rev" src="assets/palestra-pov-plateia-intimista-dinamica-syngenta.jpg" alt="Treinamento por nível de liderança">
+  </div>
+</section>
+
+<!-- ======================= ETAPA 2 ======================= -->
+<section>
+  <div class="wrap">
+    <div class="olho rev">Etapa 2</div>
+    <h2 class="rev">Mentorias mensais de <em>continuidade</em></h2>
+    <p class="lead rev larg">30&nbsp;encontros online de 2&nbsp;horas · 1 por mês para cada nível de liderança · 60&nbsp;horas no ano</p>
+    <p class="rev larg" style="margin-top:clamp(20px,4vw,28px);">Após os treinamentos presenciais, o programa tem uma segunda etapa dedicada ao acompanhamento contínuo dos três níveis de liderança, garantindo que as competências desenvolvidas sejam colocadas em prática e aprimoradas ao longo do ano. Cada encontro terá uma temática específica, aprofundando os conteúdos da primeira etapa e oferecendo um espaço de escuta, troca de experiências e consultoria aplicada aos desafios reais dos participantes.</p>
+    <div class="etapas duo">
+      <div class="bloco rev">
+        <div class="tag">Durante as mentorias, os líderes poderão</div>
+        <ul class="itens" style="margin-top:14px;border-top:none;padding-top:0;">
+          <li>Aprofundar competências de comunicação, relacionamento e liderança</li>
+          <li>Esclarecer dúvidas sobre a aplicação das ferramentas</li>
+          <li>Compartilhar situações e desafios reais do cotidiano</li>
+          <li>Analisar cases práticos com o apoio dos especialistas</li>
+          <li>Receber orientações e estratégias personalizadas</li>
+          <li>Desenvolver soluções para os desafios de suas equipes</li>
+          <li>Acompanhar sua evolução como líderes comunicadores</li>
+        </ul>
+      </div>
+      <div class="bloco inv rev">
+        <div class="tag">Formato</div>
+        <h3>Separadamente para cada nível</h3>
+        <p>As mentorias acontecerão separadamente para cada um dos três níveis de liderança, respeitando as necessidades e os desafios específicos de cada grupo.</p>
+        <ul class="itens">
+          <li>Periodicidade: 1 encontro mensal por grupo</li>
+          <li>Duração: 2&nbsp;horas por encontro</li>
+          <li>Total: 10&nbsp;encontros por grupo no ano, somando 30&nbsp;mentorias ao longo do programa</li>
+          <li>Conduzidas por Terapeutas da Comunicação especializados em Liderança com Propósito</li>
+        </ul>
+      </div>
+    </div>
+    <div class="jornada rev">
+      <div class="tt">Cronograma</div>
+      <p><b>Janeiro:</b> treinamentos presenciais de Liderança com Propósito (Etapa 1). <b>Fevereiro a novembro:</b> mentorias mensais online de continuidade, com um encontro por mês para cada nível de liderança.</p>
+    </div>
+    <img class="faixa-foto rev" src="assets/palestra-pov-plateia-com-fundadores-explicando-igualdade-de-importancia-no-slide.jpg" alt="Mentorias Voz do Ser">
+  </div>
+</section>
+
+<!-- ======================= ETAPA 2 · TEMAS ======================= -->
+<section class="esc">
+  <div class="wrap">
+    <div class="olho meio rev">Etapa 2</div>
+    <h2 class="rev centro" style="max-width:24ch;">Temáticas dos <em>encontros</em></h2>
+    <p class="rev centro" style="color:var(--mist);max-width:64ch;">Os conteúdos serão trabalhados de forma prática e adaptados às necessidades de cada nível de liderança, considerando os desafios e as oportunidades identificados ao longo do programa.</p>
+    <div class="carrossel rev">
+      <div class="trilha">
+      <span>Liderança com propósito</span>
+      <span>Cultura organizacional</span>
+      <span>Diversidade e inclusão</span>
+      <span>Cultura de feedback</span>
+      <span>Prevenção ao assédio moral e sexual</span>
+      <span>Segurança psicológica</span>
+      <span>Saúde mental no ambiente de trabalho</span>
+      <span>Inteligência emocional e relacional</span>
+      <span>Gestão de conflitos</span>
+      <span>Conversas difíceis</span>
+      <span>Engajamento de equipes</span>
+      <span>Comunicação com impacto consciente</span>
+      <span class="clone" aria-hidden="true">Liderança com propósito</span>
+      <span class="clone" aria-hidden="true">Cultura organizacional</span>
+      <span class="clone" aria-hidden="true">Diversidade e inclusão</span>
+      <span class="clone" aria-hidden="true">Cultura de feedback</span>
+      <span class="clone" aria-hidden="true">Prevenção ao assédio moral e sexual</span>
+      <span class="clone" aria-hidden="true">Segurança psicológica</span>
+      <span class="clone" aria-hidden="true">Saúde mental no ambiente de trabalho</span>
+      <span class="clone" aria-hidden="true">Inteligência emocional e relacional</span>
+      <span class="clone" aria-hidden="true">Gestão de conflitos</span>
+      <span class="clone" aria-hidden="true">Conversas difíceis</span>
+      <span class="clone" aria-hidden="true">Engajamento de equipes</span>
+      <span class="clone" aria-hidden="true">Comunicação com impacto consciente</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ETAPA 3 ======================= -->
+<section style="background:#fff;">
+  <div class="wrap">
+    <div class="olho rev">Etapa 3</div>
+    <h2 class="rev">Treinamentos de consolidação e <em>resultados</em></h2>
+    <p class="lead rev larg">21&nbsp;horas presenciais · avaliação, evolução e resultados</p>
+    <p class="rev larg" style="margin-top:clamp(20px,4vw,28px);">A terceira etapa marca o encerramento do programa, com novos treinamentos presenciais direcionados aos três níveis de liderança. Após um ano de desenvolvimento e acompanhamento, os participantes serão convidados a revisitar as competências trabalhadas, avaliar sua evolução e identificar os resultados alcançados, reconhecendo as transformações em sua comunicação, seus relacionamentos e sua atuação como líderes.</p>
+    <div class="etapas duo">
+      <div class="bloco rev" style="background:var(--mist);">
+        <div class="tag">Conteúdos e experiências</div>
+        <ul class="itens" style="margin-top:14px;border-top:none;padding-top:0;">
+          <li>Avaliação de resultados: análise dos avanços individuais e coletivos</li>
+          <li>Evolução do Perfil de Comunicação</li>
+          <li>Reavaliação do Gap de Propósito</li>
+          <li>Inteligência Emocional e Relacional na prática</li>
+          <li>Cultura de Feedback: evolução na qualidade das conversas</li>
+          <li>Cases reais: desafios superados e resultados alcançados</li>
+          <li>Consolidação das ferramentas de Comunicação com Propósito</li>
+          <li>Próximos passos para sustentar o desenvolvimento da liderança</li>
+        </ul>
+      </div>
+      <div class="bloco inv rev">
+        <div class="tag">Formato</div>
+        <h3>Os três grupos, novamente</h3>
+        <p>Assim como na primeira etapa, os encontros serão realizados separadamente para cada nível de liderança, com abordagens específicas para suas responsabilidades e desafios.</p>
+        <ul class="itens">
+          <li>Diretoria e Presidência: 4&nbsp;participantes, 6&nbsp;horas</li>
+          <li>Gestores Táticos: 7&nbsp;participantes, 6&nbsp;horas</li>
+          <li>Liderança de Base: 3&nbsp;grupos de até 27&nbsp;pessoas, 3&nbsp;treinamentos de 3&nbsp;horas, 9&nbsp;horas no total</li>
+          <li>Conduzidos por dois Terapeutas da Comunicação especializados</li>
+        </ul>
+      </div>
+    </div>
+    <img class="faixa-foto rev" src="assets/corporativo-convida-aproximado-lu-e-gabs-sorrindo.jpg" alt="Voz do Ser Convida Corporativo">
+  </div>
+</section>
+
+<!-- ======================= PROPOSTA P ======================= -->
+<section class="cap" id="estrategias">
+  <div class="letra serif">P</div>
+  <div class="wrap">
+    <div class="olho rev">Estratégia de implementação</div>
+    <h2 class="rev">Proposta <em>P</em>, treinamentos presenciais</h2>
+    <p class="lead rev larg">A base do programa em um único mês: os três níveis de liderança treinados presencialmente, com uma linguagem comum de comunicação e liderança para toda a instituição.</p>
+    <div class="etapas duo">
+      <div class="bloco rev">
+        <div class="tag">O que inclui</div>
+        <h3>Etapa 1 completa</h3>
+        <div class="quando">21&nbsp;horas presenciais</div>
+        <ul class="itens" style="margin-top:14px;border-top:none;padding-top:0;">
+          <li>Treinamento de Diretoria e Presidência: 6&nbsp;horas</li>
+          <li>Treinamento de Gestores Táticos: 6&nbsp;horas</li>
+          <li>3&nbsp;treinamentos de Liderança de Base: 9&nbsp;horas</li>
+        </ul>
+      </div>
+      <div class="bloco inv rev">
+        <div class="tag">Duração do projeto</div>
+        <h3>1&nbsp;mês</h3>
+        <p>Os treinamentos acontecem em janeiro, conduzidos por dois Terapeutas da Comunicação especializados em Liderança com Propósito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROPOSTA M ======================= -->
+<section class="cap" style="background:#fff;">
+  <div class="letra serif">M</div>
+  <div class="wrap">
+    <div class="olho rev">Estratégia de implementação</div>
+    <h2 class="rev">Proposta <em>M</em>, treinamentos e mentorias</h2>
+    <p class="lead rev larg">Une a imersão presencial inicial ao acompanhamento mensal dos três níveis de liderança ao longo do ano, transformando o aprendizado em prática contínua.</p>
+    <div class="etapas duo">
+      <div class="bloco rev" style="background:var(--mist);">
+        <div class="tag">Etapa 1</div>
+        <h3>Treinamentos por níveis de liderança</h3>
+        <div class="quando">21&nbsp;horas presenciais · janeiro</div>
+        <p>Os três treinamentos presenciais descritos acima, para Diretoria e Presidência, Gestores Táticos e Liderança de Base.</p>
+      </div>
+      <div class="bloco inv rev">
+        <div class="tag">Etapa 2</div>
+        <h3>Mentorias mensais de continuidade</h3>
+        <div class="quando">30&nbsp;encontros de 2&nbsp;horas · 60&nbsp;horas online</div>
+        <p>Um encontro mensal para cada nível de liderança, de fevereiro a novembro, com temática específica, espaço de escuta e consultoria aplicada aos desafios reais.</p>
+      </div>
+    </div>
+    <div class="jornada rev">
+      <div class="tt">Carga horária total</div>
+      <p>81&nbsp;horas: 21&nbsp;horas presenciais e 60&nbsp;horas online, ao longo de 11&nbsp;meses de projeto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROPOSTA G ======================= -->
+<section class="cap">
+  <div class="letra serif">G</div>
+  <div class="wrap">
+    <div class="olho rev">Estratégia de implementação</div>
+    <h2 class="rev">Proposta <em>G</em>, o programa completo</h2>
+    <p class="lead rev larg">O ciclo inteiro de desenvolvimento: formação presencial, acompanhamento mensal durante o ano e um encerramento presencial para avaliar a evolução e os resultados alcançados.</p>
+    <div class="etapas trio">
+      <div class="bloco rev">
+        <div class="tag">Etapa 1</div>
+        <h3>Treinamentos por níveis de liderança</h3>
+        <div class="quando">21&nbsp;horas presenciais</div>
+        <p>Os três treinamentos presenciais de abertura, um para cada nível de liderança.</p>
+      </div>
+      <div class="bloco inv rev">
+        <div class="tag">Etapa 2</div>
+        <h3>Mentorias mensais de continuidade</h3>
+        <div class="quando">30&nbsp;encontros · 60&nbsp;horas online</div>
+        <p>Um encontro mensal por grupo, de fevereiro a novembro, com acompanhamento dos três níveis de liderança.</p>
+      </div>
+      <div class="bloco rev">
+        <div class="tag">Etapa 3</div>
+        <h3>Treinamentos de consolidação e resultados</h3>
+        <div class="quando">21&nbsp;horas presenciais</div>
+        <p>Avaliação da evolução, reconhecimento dos resultados e construção dos próximos passos da liderança.</p>
+      </div>
+    </div>
+    <div class="jornada rev">
+      <div class="tt">Carga horária total</div>
+      <p>102&nbsp;horas: 42&nbsp;horas presenciais e 60&nbsp;horas online, ao longo de 12&nbsp;meses de projeto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INVESTIMENTO ======================= -->
+<section id="investimento" style="background:#fff;">
+  <div class="wrap">
+    <div class="olho rev">Investimento</div>
+    <h2 class="rev">As três <em>propostas</em></h2>
+    <p class="rev larg">Os valores já consideram os descontos aplicados ao conjunto. Os custos operacionais cobrem deslocamento, alimentação e hospedagem da equipe de 6&nbsp;pessoas em cada ida presencial.</p>
+    <div class="planos">
+
+      <div class="plano rev">
+        <div class="nome">Proposta P</div>
+        <div class="prazo">1&nbsp;mês de projeto</div>
+        <div class="opc">
+          <div class="lbl">Treinamentos presenciais</div>
+          <div class="soma">
+            Diretoria · R$&nbsp;9.500,00<br>
+            Gestores Táticos · R$&nbsp;9.500,00<br>
+            3 treinamentos de Liderança de Base · R$&nbsp;6.500,00 cada<br>
+            <b>Treinamentos com 10% de desconto · R$&nbsp;34.650,00</b><br>
+            Custos operacionais · R$&nbsp;9.000,00
+          </div>
+          <div class="val">R$ 43.650,00</div>
+          <div class="eco">investimento total</div>
+          <div class="horas">21&nbsp;horas presenciais<br>91&nbsp;pessoas treinadas</div>
+        </div>
+      </div>
+
+      <div class="plano rev">
+        <div class="nome">Proposta M</div>
+        <div class="prazo">11&nbsp;meses de projeto</div>
+        <div class="opc">
+          <div class="lbl">Treinamentos e mentorias</div>
+          <div class="soma">
+            Etapa 1 · 21&nbsp;horas presenciais<br>
+            Treinamentos com 10% de desconto · R$&nbsp;34.650,00<br>
+            Etapa 2 · 60&nbsp;horas de mentorias online<br>
+            3 mentorias com 10% de desconto · R$&nbsp;9.990,00 ao mês, por dez meses<br>
+            <b>Com mais 5% de desconto no conjunto</b>
+          </div>
+          <div class="val">R$ 127.822,50</div>
+          <div class="eco">+ custos operacionais de R$&nbsp;9.000,00</div>
+          <div class="pgto">Ou 11&nbsp;parcelas de R$&nbsp;12.438,41</div>
+          <div class="horas">81&nbsp;horas<br>21 presenciais e 60 online</div>
+        </div>
+      </div>
+
+      <div class="plano rev">
+        <div class="nome">Proposta G</div>
+        <div class="prazo">12&nbsp;meses de projeto</div>
+        <div class="opc inv">
+          <div class="lbl">Programa completo</div>
+          <div class="soma">
+            Etapa 1 · 21&nbsp;horas presenciais · R$&nbsp;34.650,00<br>
+            Etapa 2 · 60&nbsp;horas online · R$&nbsp;9.990,00 ao mês<br>
+            Etapa 3 · 21&nbsp;horas presenciais · R$&nbsp;34.650,00<br>
+            <b>Com mais 11,35% de desconto no conjunto</b>
+          </div>
+          <div class="val">R$ 150.000,00</div>
+          <div class="eco">+ custos operacionais de 2 idas presenciais, R$&nbsp;18.000,00</div>
+          <div class="pgto">Ou 12&nbsp;parcelas de R$&nbsp;14.000,00</div>
+          <div class="horas">102&nbsp;horas<br>42 presenciais e 60 online</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= QUEM SOMOS ======================= -->
+<section class="esc">
+  <div class="wrap sobre">
+    <div class="rev">
+      <img src="assets/socios-voz-do-ser.png" alt="Sócios Voz do Ser">
+    </div>
+    <div>
+      <div class="olho rev">Quem somos</div>
+      <h2 class="rev">Um instituto de <em>Comunicação com Propósito</em></h2>
+      <p class="rev" style="color:var(--mist);">O Voz do Ser é um Instituto de Comunicação com Propósito, autoconhecimento e mudança de mentalidade. Atuamos nas áreas clínica, organizacional e educacional, oferecendo terapias, cursos e treinamentos em comunicação, inteligência emocional e desenvolvimento pessoal.</p>
+      <p class="rev" style="color:var(--mist);margin-top:16px;">Nossa abordagem une ciência, prática e espiritualidade, para promover transformação de relacionamentos e expansão consciencial.</p>
+      <div class="nums rev">
+        <div><div class="n" data-alvo="10">10</div><div class="l">Sócios</div></div>
+        <div><div class="n" data-alvo="15">15</div><div class="l">Professores</div></div>
+        <div><div class="n" data-alvo="22">22</div><div class="l">Terapeutas</div></div>
+        <div><div class="n" data-alvo="53">53</div><div class="l">Formados na metodologia</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CLIENTES ======================= -->
+<section>
+  <div class="wrap">
+    <div class="olho rev">Nossos clientes</div>
+    <h2 class="rev">Empresas e times que já viveram a <em>Comunicação com Propósito</em></h2>
+    <div class="marcas rev">
+      <img src="assets/voz-logos06.webp" alt="">
+      <img src="assets/voz-logos04.webp" alt="">
+      <img src="assets/voz-logos11.webp" alt="">
+      <img src="assets/voz-logos15.webp" alt="">
+      <img src="assets/voz-logos16.webp" alt="">
+      <img src="assets/voz-logos18.webp" alt="">
+      <img src="assets/voz-logos21.webp" alt="">
+      <img src="assets/voz-logos23.webp" alt="">
+      <img src="assets/voz-logos24.webp" alt="">
+      <img src="assets/voz-logos32.webp" alt="">
+      <img src="assets/voz-logos35.webp" alt="">
+      <img src="assets/voz-logos36.webp" alt="">
+      <img src="assets/voz-logos38.webp" alt="">
+      <img src="assets/voz-logos39.webp" alt="">
+      <img src="assets/voz-logos41.webp" alt="">
+      <img src="assets/voz-logos42.webp" alt="">
+      <img src="assets/voz-logos44.png" alt="">
+      <img src="assets/logo-bancodobrasil.png" alt="">
+      <img src="assets/logo-buddhaspa.png" alt="">
+      <img src="assets/voz-logos02.webp" alt="">
+      <img src="assets/voz-logos03.webp" alt="">
+      <img src="assets/voz-logos05.webp" alt="">
+      <img src="assets/voz-logos07.webp" alt="">
+      <img src="assets/voz-logos08.webp" alt="">
+      <img src="assets/voz-logos09.webp" alt="">
+      <img src="assets/voz-logos10.webp" alt="">
+      <img src="assets/voz-logos12.webp" alt="">
+      <img src="assets/voz-logos13.webp" alt="">
+      <img src="assets/voz-logos14.webp" alt="">
+      <img src="assets/voz-logos17.webp" alt="">
+      <img src="assets/voz-logos19.webp" alt="">
+      <img src="assets/voz-logos20.webp" alt="">
+      <img src="assets/voz-logos22.webp" alt="">
+      <img src="assets/voz-logos25.webp" alt="">
+      <img src="assets/voz-logos26.webp" alt="">
+      <img src="assets/voz-logos27.webp" alt="">
+      <img src="assets/voz-logos28.webp" alt="">
+      <img src="assets/voz-logos29.webp" alt="">
+      <img src="assets/voz-logos30.webp" alt="">
+      <img src="assets/voz-logos31.webp" alt="">
+      <img src="assets/voz-logos33.webp" alt="">
+      <img src="assets/voz-logos34.webp" alt="">
+      <img src="assets/voz-logos37.webp" alt="">
+      <img src="assets/voz-logos40.webp" alt="">
+      <img src="assets/voz-logos43.webp" alt="">
+      <img src="assets/logo-conx-padrao.png" alt="">
+    </div>
+    <div class="nums claro rev">
+      <div><div class="n" data-alvo="50" data-mais="1">+50</div><div class="l">Empresas atendidas</div></div>
+      <div><div class="n" data-alvo="180" data-mais="1">+180</div><div class="l">Alunos na metodologia</div></div>
+      <div><div class="n" data-alvo="450" data-mais="1">+450</div><div class="l">Treinamentos</div></div>
+      <div><div class="n" data-alvo="10000" data-mais="1">+10000</div><div class="l">Pessoas impactadas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTATO ======================= -->
+<section id="contato" class="contato">
+  <img class="bg" src="assets/palestrante-explicando-o-caminho-do-autoconhecimento-no-slide.jpg" alt="">
+  <div class="veu"></div>
+  <div class="wrap">
+    <div class="olho rev">Próximo passo</div>
+    <h2 class="rev">Escolhida a proposta, <em>desenhamos o calendário</em></h2>
+    <p class="lead rev" style="color:var(--mist);max-width:56ch;">Estamos à disposição para detalhar a estratégia que fizer mais sentido para o Sicoob Credimonte e alinhar as datas.</p>
+    <div class="canais rev">
+      <a href="https://wa.me/5511987792244"><b>WhatsApp</b><span>(11) 98779-2244 · Silvia Maciel</span></a>
+      <a href="mailto:falecom@vozdoser.com.br"><b>E-mail</b><span>falecom@vozdoser.com.br</span></a>
+      <a href="https://vozdoser.com.br/"><b>Site</b><span>vozdoser.com.br</span></a>
+      <a href="https://www.instagram.com/vozdoser/"><b>Instagram</b><span>@vozdoser</span></a>
+      <a href="https://www.linkedin.com/school/voz-do-ser/"><b>LinkedIn</b><span>Voz do Ser</span></a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Afr%C3%A2nio%20Peixoto%2C%20250%20-%20Butant%C3%A3%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2005507-000"><b>Endereço</b><span>Av. Afrânio Peixoto, 250 · Butantã · São Paulo · SP</span></a>
+    </div>
+    <div class="fim">Instituto Voz do Ser · A voz de quem realmente somos</div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* barra de progresso + topo fixo */
+  var prog = document.getElementById('prog'), topo = document.getElementById('topo');
+  function naRolagem(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    topo.classList.toggle('on', window.scrollY > window.innerHeight * 0.75);
+  }
+  window.addEventListener('scroll', naRolagem, {passive:true});
+  naRolagem();
+
+  /* entrada em cena */
+  var alvos = document.querySelectorAll('.rev');
+  if (reduz || !('IntersectionObserver' in window)) {
+    alvos.forEach(function(el){ el.classList.add('vis'); });
+  } else {
+    var obs = new IntersectionObserver(function(ent){
+      ent.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -12% 0px', threshold:0.08});
+    alvos.forEach(function(el, i){ el.style.transitionDelay = ((i % 4) * 70) + 'ms'; obs.observe(el); });
+  }
+
+  /* contagem dos números */
+  var nums = document.querySelectorAll('.n[data-alvo]');
+  if (!reduz && 'IntersectionObserver' in window){
+    var obsN = new IntersectionObserver(function(ent){
+      ent.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var el = e.target, fim = parseInt(el.dataset.alvo, 10), mais = el.dataset.mais ? '+' : '';
+        var t0 = null, dur = 1100;
+        function passo(t){
+          if (!t0) t0 = t;
+          var p = Math.min((t - t0) / dur, 1);
+          el.textContent = mais + Math.round(fim * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(passo);
+        }
+        requestAnimationFrame(passo);
+        obsN.unobserve(el);
+      });
+    }, {threshold:0.5});
+    nums.forEach(function(el){ obsN.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
